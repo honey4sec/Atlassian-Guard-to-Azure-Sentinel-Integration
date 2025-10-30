@@ -23,7 +23,7 @@ Before you begin, ensure you have:
 
 - **Azure Subscription** with appropriate permissions
 - **Azure Sentinel** workspace deployed
-- **Atlassian Guard** (requires Enterprise plan)
+- **Atlassian Guard** (requires guard premium plan)
 - **Permissions**:
   - Logic App Contributor (or higher) in Azure
   - Key Vault Administrator or Key Vault Secrets Officer
