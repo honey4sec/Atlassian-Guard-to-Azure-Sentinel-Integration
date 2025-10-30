@@ -1,0 +1,128 @@
+{
+  "location": "norwayeast",
+  "properties": {
+    "dataCollectionEndpointId": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/rg-sentinel-log-ingest-eno/providers/Microsoft.Insights/dataCollectionEndpoints/dce-sentinel-prod-eno",
+    "streamDeclarations": {
+      "Custom-atlassian_guard_detect_CL": {
+        "columns": [
+          {
+            "name": "TimeGenerated",
+            "type": "datetime"
+          },
+          {
+            "name": "AlertId",
+            "type": "string"
+          },
+          {
+            "name": "AlertTitle",
+            "type": "string"
+          },
+          {
+            "name": "AlertDetailURL",
+            "type": "string"
+          },
+          {
+            "name": "DetectionTime",
+            "type": "long"
+          },
+          {
+            "name": "ActivityAction",
+            "type": "string"
+          },
+          {
+            "name": "ActivitySubjectAri",
+            "type": "string"
+          },
+          {
+            "name": "ActivitySubjectContainerAri",
+            "type": "string"
+          },
+          {
+            "name": "ActivitySubjectAti",
+            "type": "string"
+          },
+          {
+            "name": "ActivityTimeStart",
+            "type": "string"
+          },
+          {
+            "name": "ActivityTimeEnd",
+            "type": "string"
+          },
+          {
+            "name": "ActorAccountId",
+            "type": "string"
+          },
+          {
+            "name": "ActorName",
+            "type": "string"
+          },
+          {
+            "name": "ActorUrl",
+            "type": "string"
+          },
+          {
+            "name": "ActorSessions",
+            "type": "dynamic"
+          },
+          {
+            "name": "AlertProduct",
+            "type": "string"
+          },
+          {
+            "name": "AlertSite",
+            "type": "string"
+          },
+          {
+            "name": "AlertUrl",
+            "type": "string"
+          },
+          {
+            "name": "EventId",
+            "type": "string"
+          },
+          {
+            "name": "EventType",
+            "type": "string"
+          },
+          {
+            "name": "Timestamp",
+            "type": "long"
+          },
+          {
+            "name": "WorkspaceCloudId",
+            "type": "string"
+          },
+          {
+            "name": "WorkspaceId",
+            "type": "string"
+          },
+          {
+            "name": "WorkspaceOrgId",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "destinations": {
+      "logAnalytics": [
+        {
+          "workspaceResourceId": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/rg-sentinel-log-ingest-eno/providers/Microsoft.OperationalInsights/workspaces/sentinel-workspace-prod",
+          "name": "sentinel-workspace"
+        }
+      ]
+    },
+    "dataFlows": [
+      {
+        "streams": [
+          "Custom-atlassian_guard_detect_CL"
+        ],
+        "destinations": [
+          "sentinel-workspace"
+        ],
+        "transformKql": "source",
+        "outputStream": "Custom-atlassian_guard_detect_CL"
+      }
+    ]
+  }
+}

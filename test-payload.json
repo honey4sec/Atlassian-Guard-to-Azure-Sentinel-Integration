@@ -1,0 +1,47 @@
+{
+  "alertId": "test-alert-123456",
+  "alertTitle": "Suspicious Activity Detected - Test Alert",
+  "alertDetailURL": "https://admin.atlassian.com/guard/alerts/test-123456",
+  "detectionTime": 1698758400000,
+  "activity": {
+    "action": "confluence.page.delete",
+    "subject": {
+      "ari": "ari:cloud:confluence:12345678-1234-1234-1234-123456789012:page/987654321",
+      "containerAri": "ari:cloud:confluence:12345678-1234-1234-1234-123456789012:space/TESTSPACE",
+      "ati": "confluence:page"
+    },
+    "time": {
+      "start": "2024-10-30T10:00:00.000Z",
+      "end": "2024-10-30T10:05:00.000Z"
+    }
+  },
+  "actor": {
+    "accountId": "557058:12345678-1234-1234-1234-123456789012",
+    "name": "Test User",
+    "sessions": [
+      {
+        "ipAddress": "203.0.113.42",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+        "loginTime": "2024-10-30T09:45:00.000Z",
+        "lastActiveTime": "2024-10-30T10:05:00.000Z"
+      }
+    ],
+    "url": "https://admin.atlassian.com/users/557058:12345678-1234-1234-1234-123456789012"
+  },
+  "alert": {
+    "created": "2024-10-30T10:10:00.000Z",
+    "id": "alert-123456",
+    "product": "confluence",
+    "site": "yourcompany",
+    "title": "Suspicious Activity Detected - Test Alert",
+    "url": "https://admin.atlassian.com/o/12345678-1234-1234-1234-123456789012/guard/alerts/alert-123456"
+  },
+  "id": "event-123456789",
+  "timestamp": 1698758400000,
+  "type": "guard.detect.alert",
+  "workspace": {
+    "cloudId": "12345678-1234-1234-1234-123456789012",
+    "id": "workspace-123",
+    "orgId": "12345678-1234-1234-1234-123456789012"
+  }
+}

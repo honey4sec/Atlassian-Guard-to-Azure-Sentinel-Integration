@@ -1,0 +1,48 @@
+graph TB
+    subgraph "Atlassian Cloud"
+        AG[Atlassian Guard<br/>Detect]
+    end
+
+    subgraph "Azure - Resource Group"
+        subgraph "Security & Authentication"
+            KV[Azure Key Vault<br/>Webhook Token]
+            MI[Managed Identity<br/>Authentication]
+        end
+
+        subgraph "Integration Layer"
+            LA[Logic App<br/>Webhook Receiver]
+        end
+
+        subgraph "Data Ingestion"
+            DCE[Data Collection<br/>Endpoint]
+            DCR[Data Collection<br/>Rule]
+        end
+
+        subgraph "Storage & Analytics"
+            LAW[Log Analytics<br/>Workspace]
+            CT[Custom Table<br/>atlassian_guard_detect_CL]
+        end
+
+        subgraph "Security Operations"
+            AS[Azure Sentinel<br/>SIEM]
+        end
+    end
+
+    AG -->|HTTPS Webhook<br/>POST /| LA
+    LA -->|Validate Token| KV
+    LA -->|Authenticate| MI
+    LA -->|Transform & Send| DCE
+    DCE -->|Apply Rules| DCR
+    DCR -->|Ingest Data| LAW
+    LAW -->|Store in| CT
+    CT -->|Query & Alert| AS
+
+    style AG fill:#0052CC
+    style LA fill:#0078D4
+    style KV fill:#FFB900
+    style MI fill:#00A4EF
+    style DCE fill:#7FBA00
+    style DCR fill:#7FBA00
+    style LAW fill:#00A4EF
+    style CT fill:#00A4EF
+    style AS fill:#0078D4
